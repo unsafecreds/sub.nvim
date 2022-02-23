@@ -1,6 +1,6 @@
-# 🏔Sub.nvim
+# 🏔 Sub.nvim
 
-A darker, colder Neovim colorscheme, inspired by [substrata.nvim](https://github.com/kvrohit/substrata.nvim) & [rsms's Sublime theme](https://github.com/rsms/sublime-theme) &
+A darker, colder Neovim colorscheme, inspired by [substrata.nvim](https://github.com/kvrohit/substrata.nvim) & [rsms's Sublime theme](https://github.com/rsms/sublime-theme)
 
 substrata.nvim's README follows, all I did was change some colors
 
