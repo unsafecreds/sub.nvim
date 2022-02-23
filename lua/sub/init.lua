@@ -1,7 +1,7 @@
-local variants = require("substrata.colors")
-local cfg = require("substrata.config").config
+local variants = require("sub.colors")
+local cfg = require("sub.config").config
 local c = variants[cfg.variant]
-local utils = require("substrata.utils")
+local utils = require("sub.utils")
 local M = {}
 
 local set_terminal_colors = function()
@@ -177,19 +177,19 @@ local set_groups = function()
     -- TreeSitter highlight groups
     TSAnnotation = { fg = c.green }, -- For C++/Dart attributes, annotations that can be attached to the code to denote some kind of meta information.
     TSAttribute = { fg = c.pink }, -- (unstable) TODO: docs
-    TSBoolean = { fg = c.pink, bg = c.none, style = cfg.boolean_style }, -- true or false
-    TSCharacter = { fg = c.pink }, -- For characters.
+    TSBoolean = { fg = c.light_green, bg = c.none, style = cfg.boolean_style }, -- true or false
+    TSCharacter = { fg = c.blue }, -- For characters.
     TSComment = { fg = c.gray, bg = c.none, style = cfg.comment_style }, -- For comment blocks.
-    TSConditional = { fg = c.pink, style = cfg.keyword_style }, -- For keywords related to conditionnals.
+    TSConditional = { fg = c.blue, style = cfg.keyword_style }, -- For keywords related to conditionnals.
     TSConstant = { fg = c.fg }, -- For constants
-    TSConstBuiltin = { fg = c.pink, style = "italic" }, -- For constants that are built in the language: `nil` in Lua.
+    TSConstBuiltin = { fg = c.white, style = "italic" }, -- For constants that are built in the language: `nil` in Lua.
     TSConstMacro = { fg = c.cyan }, -- For constants that are defined by macros: `NULL` in C.
-    TSConstructor = { fg = c.gray_alt }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
+    TSConstructor = { fg = c.white }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
     TSError = { fg = c.red }, -- For syntax/parser errors.
     TSException = { fg = c.blue }, -- For exception related keywords.
     TSField = { fg = c.blue }, -- For fields.
     TSFloat = { fg = c.pink }, -- For floats.
-    TSFunction = { fg = c.light_blue, style = cfg.function_style }, -- For fuction (calls and definitions).
+    TSFunction = { fg = c.white, style = cfg.function_style }, -- For fuction (calls and definitions).
     TSFuncBuiltin = { fg = c.light_blue, style = cfg.function_style }, -- For builtin functions: `table.insert` in Lua.
     TSFuncMacro = { fg = c.blue }, -- For macro defined fuctions (calls and definitions): each `macro_rules` in Rust.
     TSInclude = { fg = c.blue, style = "italic" }, -- For includes: `#include` in C, `use` or `extern crate` in Rust, or `require` in Lua.
@@ -201,8 +201,8 @@ local set_groups = function()
     TSMethod = { fg = c.light_blue, style = cfg.function_style }, -- For method calls and definitions.
     TSNamespace = { fg = c.blue }, -- For identifiers referring to modules and namespaces.
     -- TSNone = {}, -- No highlighting. Don't change the values of this highlight group.
-    TSNumber = { fg = c.pink }, -- For all numbers
-    TSOperator = { fg = c.gray_alt }, -- For any operator: `+`, but also `->` and `*` in C.
+    TSNumber = { fg = c.light_green }, -- For all numbers
+    TSOperator = { fg = c.red }, -- For any operator: `+`, but also `->` and `*` in C.
     TSParameter = { fg = c.fg }, -- For parameters of a function.
     TSParameterReference = { fg = c.fg }, -- For references to parameters of a function.
     TSProperty = { fg = c.blue }, -- Same as `TSField`.
@@ -210,7 +210,7 @@ local set_groups = function()
     TSPunctBracket = { fg = c.gray_alt }, -- For brackets and parens.
     TSPunctSpecial = { fg = c.pink }, -- For special punctutation that does not fall in the catagories before.
     TSRepeat = { fg = c.blue, style = cfg.keyword_style }, -- For keywords related to loops.
-    TSString = { fg = c.cyan }, -- For strings.
+    TSString = { fg = c.light_green }, -- For strings.
     TSStringRegex = { fg = c.blue }, -- For regexes.
     TSStringEscape = { fg = c.pink }, -- For escape characters within a string.
     TSStringSpecial = { fg = c.pink }, -- For strings with special meaning that don't fit into the above categories.
@@ -233,10 +233,10 @@ local set_groups = function()
     TSNote = { fg = c.blue, style = "italic" }, -- Text representation of an informational note.
     TSWarning = { fg = c.yellow, style = "italic" }, -- Text representation of a warning note.
     TSDanger = { fg = c.red, style = "italic" }, -- Text representation of a danger note.
-    TSType = { fg = c.pink }, -- For types.
+    TSType = { fg = c.cyan }, -- For types.
     TSTypeBuiltin = { fg = c.cyan }, -- For builtin types.
-    TSVariable = { fg = c.fg, style = cfg.variable_style }, -- Any variable name that does not have another highlight.
-    TSVariableBuiltin = { fg = c.pink, style = cfg.variable_style }, -- Variable names that are defined by the languages, like `this` or `self`.
+    TSVariable = { fg = c.white, style = cfg.variable_style }, -- Any variable name that does not have another highlight.
+    TSVariableBuiltin = { fg = c.white, style = cfg.variable_style }, -- Variable names that are defined by the languages, like `this` or `self`.
     -- highlight groups for the native LSP client
     LspReferenceText = { fg = c.bg0, bg = c.pink }, -- used for highlighting "text" references
     LspReferenceRead = { fg = c.bg0, bg = c.pink }, -- used for highlighting "read" references
@@ -440,7 +440,7 @@ M.colorscheme = function()
   end
 
   vim.o.termguicolors = true
-  vim.g.colors_name = "substrata"
+  vim.g.colors_name = "sub"
 
   set_terminal_colors()
   set_groups()

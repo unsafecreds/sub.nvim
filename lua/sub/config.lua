@@ -1,7 +1,7 @@
 local M = {}
 
 local function opt(key, default)
-  key = "substrata_" .. key
+  key = "sub_" .. key
   if vim.g[key] == nil then
     return default
   end
